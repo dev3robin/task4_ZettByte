@@ -17,12 +17,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between shadow-xl py-4">
           <div className="flex items-center gap-2">
-            <a
+            <Link
               href="/"
               className="font-bold tracking-widest ml-[-8px] text-xl sm:text-2xl"
             >
               Mini Dashboard
-            </a>
+            </Link>
           </div>
           <div className="flex items-center gap-2">
             <div className="hidden sm:inline-block relative cursor-pointer mx-2 group">
@@ -65,7 +65,7 @@ export default function Navbar() {
         </div>
         <div className="flex gap-2 mt-6 flex-wrap mb-6">
           {tabs.map((item, index) => (
-          <Link
+            <Link
               key={index}
               href={item.href}
               onClick={() => setActiveTab(index)}
