@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   const [activeTab, setActiveTab] = useState(0);
-  const [islogged, setislogged] = useState<boolean> (true)
+  const [islogged, setislogged] = useState<boolean> (false)
 
   const tabs = [
     { text: "Home", href: "/" },
@@ -48,12 +48,17 @@ export default function Navbar() {
                 <img src="user.svg" alt="" />
               </div>
             :
-              <button
-                onClick={() => alert("Open login popup")}
-                className="bg-blue-600 hover:bg-blue-700 rounded-md px-3 py-1 ml-2"
-              >
-                Login
-              </button>
+              <Link 
+                href="/loginSignUp"
+                >
+                <button
+                  className="
+                  bg-blue-600 hover:bg-blue-700 
+                  rounded-md px-3 py-1 ml-2"
+                >
+                  Login
+                </button>
+              </Link>
             }
           </div>
         </div>
