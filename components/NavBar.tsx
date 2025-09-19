@@ -52,6 +52,7 @@ export default function Navbar() {
                 href="/loginSignUp"
                 >
                 <button
+                  onClick={()=>setislogged(true)}
                   className="
                   bg-blue-600 hover:bg-blue-700 
                   rounded-md px-3 py-1 ml-2"
