@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [activeTab, setActiveTab] = useState(0);
@@ -45,7 +46,13 @@ export default function Navbar() {
             {/* if user loogedin then  */}
             {islogged?
               <div className="rounded-full border-1 p-1">
-                <img src="user.svg" alt="" />
+                <Image 
+                  src="/user.svg"
+                  alt="User Icon" 
+                  width={40}
+                  height={40} 
+                />
+
               </div>
             :
               <Link 

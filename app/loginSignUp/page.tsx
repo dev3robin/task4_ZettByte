@@ -2,7 +2,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import type { User } from 'firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { signup, login, logout, loginWithGoogle } from '@/firebase/authService';
 import { auth } from '@/firebase';
@@ -11,12 +10,11 @@ import { useRouter } from 'next/navigation';
 export default function AuthPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+      console.log(currentUser)
     });
     return () => unsubscribe();
   }, []);
@@ -25,7 +23,6 @@ export default function AuthPage() {
     try {
       const res = await signup(email, password);
       if (res.user) {
-        setUser(res.user);
         router.push('/');
       }
     } catch (err) {
